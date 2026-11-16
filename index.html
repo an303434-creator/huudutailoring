@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NHÀ MAY HỮU DƯ | May Đo Trang Phục Nam & Nữ Cao Cấp</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            charcoal: '#111111',
+            ivory: '#F3F1ED',
+            gold: '#D4AF37',
+            goldlight: '#F4E8C1',
+            slategray: '#777777',
+            lightgray: '#E5E5E5',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Be Vietnam Pro"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+      background-color: #FFFFFF;
+      color: #111111;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, .font-serif-luxury {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+    .title-gold {
+      color: #D4AF37 !important;
+    }
+    .text-body-white {
+      color: #FFFFFF !important;
+    }
+    .taskbar-black {
+      background-color: #000000 !important;
+      color: #FFFFFF !important;
+    }
+    .highlight-white {
+      background-color: #FFFFFF !important;
+      color: #111111 !important;
+    }
+    .footer-gold-full {
+      background-color: #000000 !important;
+      color: #FFFFFF !important;
+    }
+    .footer-gold-full * {
+      color: #FFFFFF !important;
+    }
+    .footer-gold-full .title-gold, .footer-gold-full h2 {
+      color: #D4AF37 !important;
+    }
+    .btn-luxury-dark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 2rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-weight: 500;
+      background-color: #111111;
+      color: #FFFFFF;
+      border: 1px solid #111111;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .btn-luxury-dark:hover:not(:disabled) {
+      background-color: #D4AF37;
+      border-color: #D4AF37;
+      color: #111111;
+    }
+    .btn-luxury-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 2rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-weight: 500;
+      background-color: #D4AF37;
+      color: #111111;
+      border: 1px solid #D4AF37;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .btn-luxury-gold:hover:not(:disabled) {
+      background-color: #111111;
+      color: #D4AF37;
+    }
+    .input-luxury {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem;
+      background-color: #FFFFFF;
+      color: #111111;
+      border: 1px solid #E5E5E5;
+      transition: border-color 0.25s ease;
+    }
+    .input-luxury:focus {
+      outline: none;
+      border-color: #D4AF37;
+    }
+    .fade-in {
+      animation: fadeIn 0.35s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-white text-[#111111]">
+
+  <!-- ==================== HEADER / TASKBAR ==================== -->
+  <header class="sticky top-0 z-40 taskbar-black border-b border-white/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 h-20 flex items-center justify-between">
+      <button type="button" onclick="navigateTo('home')" class="flex items-center gap-3.5 text-left group">
+        <div class="w-9 h-9 border border-[#D4AF37] flex items-center justify-center font-serif-luxury text-lg tracking-widest bg-black text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black transition-colors shadow-sm">
+          HD
+        </div>
+        <div>
+          <span class="font-serif-luxury text-lg sm:text-xl tracking-[0.22em] uppercase block leading-none title-gold">
+            NHÀ MAY HỮU DƯ
+          </span>
+          <span class="text-[10px] tracking-[0.25em] uppercase text-[#A0A0A0] block mt-1">
+            Bespoke Tailoring
+          </span>
+        </div>
+      </button>
+
+      <nav class="hidden lg:flex items-center gap-8" id="desktop-nav">
+        <button type="button" data-nav="home" onclick="navigateTo('home')" class="nav-link text-xs uppercase tracking-[0.18em] py-2 border-b border-[#D4AF37] title-gold font-medium">Trang chủ</button>
+        <button type="button" data-nav="about" onclick="navigateTo('about')" class="nav-link text-xs uppercase tracking-[0.18em] py-2 border-b border-transparent text-white/80 hover:text-white">Giới thiệu</button>
+        <button type="button" data-nav="products" onclick="navigateTo('products')" class="nav-link text-xs uppercase tracking-[0.18em] py-2 border-b border-transparent text-white/80 hover:text-white">Sản phẩm</button>
+        <button type="button" data-nav="tailoring" onclick="navigateTo('tailoring')" class="nav-link text-xs uppercase tracking-[0.18em] py-2 border-b border-transparent text-white/80 hover:text-white">May đo riêng</button>
+        <button type="button" data-nav="measurement" onclick="navigateTo('measurement')" class="nav-link text-xs uppercase tracking-[0.18em] py-2 border-b border-transparent text-white/80 hover:text-white">Hướng dẫn đo</button>
+        
+        <button type="button" id="header-admin-btn" onclick="navigateTo('admin')" class="hidden text-xs uppercase tracking-[0.18em] py-1.5 px-3 border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-colors">
+          Dashboard
+        </button>
+
+        <div id="header-auth-area">
+          <button type="button" onclick="openAuthModal('login')" class="text-xs uppercase tracking-[0.18em] text-white hover:text-[#D4AF37] py-2">
+            Tài khoản
+          </button>
+        </div>
+      </nav>
+
+      <button type="button" onclick="toggleMobileMenu()" aria-label="Mở menu" class="lg:hidden p-2 text-white">
+        <svg id="icon-menu-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden lg:hidden taskbar-black border-t border-white/20 px-6 py-6 space-y-4">
+      <button type="button" onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left py-2 text-xs uppercase tracking-[0.2em] text-white">Trang chủ</button>
+      <button type="button" onclick="navigateTo('about'); toggleMobileMenu()" class="block w-full text-left py-2 text-xs uppercase tracking-[0.2em] text-white/80">Giới thiệu</button>
+      <button type="button" onclick="navigateTo('products'); toggleMobileMenu()" class="block w-full text-left py-2 text-xs uppercase tracking-[0.2em] text-white/80">Sản phẩm</button>
+      <button type="button" onclick="navigateTo('tailoring'); toggleMobileMenu()" class="block w-full text-left py-2 text-xs uppercase tracking-[0.2em] text-white/80">May đo riêng</button>
+      <button type="button" onclick="navigateTo('measurement'); toggleMobileMenu()" class="block w-full text-left py-2 text-xs uppercase tracking-[0.2em] text-white/80">Hướng dẫn đo</button>
+      <button type="button" id="mobile-admin-btn" onclick="navigateTo('admin'); toggleMobileMenu()" class="hidden w-full text-left py-2 text-xs uppercase tracking-[0.2em] font-semibold title-gold">Dashboard Quản trị</button>
+      <div class="pt-4 border-t border-white/20" id="mobile-auth-area">
+        <button type="button" onclick="toggleMobileMenu(); openAuthModal('login')" class="btn-luxury-gold w-full">Đăng nhập / Đăng ký</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== NỘI DUNG CHÍNH ==================== -->
+  <main class="flex-1">
+
+    <!-- 1. TRANG CHỦ -->
+    <section id="view-home" class="page-view fade-in">
+      <div class="bg-[#000000] text-white py-28 sm:py-36 lg:py-44 px-4 sm:px-6 lg:px-10 border-b border-white/10">
+        <div class="max-w-4xl mx-auto text-center space-y-8">
+          <p class="text-[11px] uppercase tracking-[0.35em] text-[#777777]">Bespoke Tailoring House</p>
+          <h1 class="font-serif-luxury text-4xl sm:text-5xl lg:text-6xl font-normal tracking-[0.2em] uppercase title-gold">
+            NHÀ MAY HỮU DƯ
+          </h1>
+          <p class="font-serif-luxury text-xl sm:text-2xl italic text-body-white tracking-wide">
+            &ldquo;Chỉn chu trong từng đường kim. Tinh tế trong từng thiết kế.&rdquo;
+          </p>
+          <div class="w-16 h-[1px] bg-[#D4AF37]/40 mx-auto"></div>
+          <p class="max-w-2xl mx-auto text-sm sm:text-base text-body-white font-light leading-relaxed">
+            Nhà May Hữu Dư mang đến những thiết kế may đo dành cho nam và nữ, được hoàn thiện theo vóc dáng, phong cách và yêu cầu riêng của từng khách hàng.
+          </p>
+          <div class="pt-4 flex flex-wrap justify-center gap-4">
+            <button type="button" onclick="navigateTo('tailoring')" class="btn-luxury-gold">
+              ĐẶT MAY RIÊNG NGAY
+            </button>
+            <button type="button" onclick="navigateTo('about')" class="btn-luxury-dark border-white text-white hover:bg-white hover:text-black">
+              TÌM HIỂU VỀ CHÚNG TÔI
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-white py-24 sm:py-32 px-4 sm:px-6 lg:px-10">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16 space-y-4">
+            <p class="text-[11px] uppercase tracking-[0.3em] text-[#777777]">Tuyển chọn may đo</p>
+            <h2 class="font-serif-luxury text-3xl sm:text-4xl font-normal tracking-[0.18em] uppercase text-[#111111]">
+              NHỮNG THIẾT KẾ TIÊU BIỂU
+            </h2>
+          </div>
+          <div id="home-featured-container">
+            <div class="border border-[#E5E5E5] py-16 px-6 text-center space-y-3">
+              <p class="text-xs uppercase tracking-widest text-[#777777]">Đang đồng bộ danh mục từ cơ sở dữ liệu...</p>
+            </div>
+          </div>
+          <div class="mt-14 text-center">
+            <button type="button" onclick="navigateTo('products')" class="btn-luxury-dark">
+              XEM THÊM SẢN PHẨM
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. TRANG GIỚI THIỆU -->
+    <section id="view-about" class="page-view hidden fade-in bg-white text-[#111111]">
+      <div class="bg-[#111111] text-white py-24 sm:py-32 px-4 sm:px-6 lg:px-10">
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+          <p class="text-[11px] uppercase tracking-[0.35em] text-[#777777]">Câu chuyện &amp; Triết lý</p>
+          <h1 class="font-serif-luxury text-4xl sm:text-5xl font-normal tracking-[0.2em] uppercase title-gold">
+            NHÀ MAY HỮU DƯ
+          </h1>
+          <p class="font-serif-luxury text-xl italic text-body-white">
+            &ldquo;Chỉn chu trong từng đường kim. Tinh tế trong từng thiết kế.&rdquo;
+          </p>
+        </div>
+      </div>
+
+      <div class="py-20 sm:py-28 px-4 sm:px-6 lg:px-10 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div class="lg:col-span-6 space-y-6">
+            <p class="text-[11px] uppercase tracking-[0.28em] text-[#777777]">01. Câu chuyện thương hiệu</p>
+            <h2 class="font-serif-luxury text-3xl sm:text-4xl font-normal tracking-wide title-gold">
+              Bản sắc của nghệ thuật may đo thủ công
+            </h2>
+            <p class="text-sm sm:text-base text-[#444444] font-light leading-relaxed">
+              Nhà May Hữu Dư ra đời từ niềm trân trọng dành cho giá trị nguyên bản của nghề may đo truyền thống kết hợp cùng tư duy thẩm mỹ đương đại. Chúng tôi tin rằng mỗi cá nhân đều sở hữu một tỷ lệ hình thể, khí chất và câu chuyện riêng.
+            </p>
+          </div>
+          <div class="lg:col-span-6">
+            <div class="aspect-[4/5] bg-[#F3F1ED] border border-[#E5E5E5] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1000&q=80" alt="May đo" class="w-full h-full object-cover grayscale contrast-110" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. TRANG SẢN PHẨM -->
+    <section id="view-products" class="page-view hidden fade-in bg-white text-[#111111] min-h-screen">
+      <div class="bg-[#F3F1ED] py-16 sm:py-24 px-4 sm:px-6 lg:px-10 border-b border-[#E5E5E5]">
+        <div class="max-w-6xl mx-auto text-center space-y-4">
+          <p class="text-[11px] uppercase tracking-[0.3em] text-[#777777]">Danh mục may đo</p>
+          <h1 class="font-serif-luxury text-3xl sm:text-5xl font-normal tracking-[0.18em] uppercase">
+            SẢN PHẨM &amp; THIẾT KẾ
+          </h1>
+          <p class="max-w-xl mx-auto text-sm text-[#777777] font-light">
+            Khám phá các dòng trang phục may đo dành cho Nam và Nữ.
+          </p>
+        </div>
+      </div>
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 py-16">
+        <div id="products-grid-container"></div>
+      </div>
+    </section>
+
+    <!-- 4. TRANG MAY ĐO RIÊNG -->
+    <section id="view-tailoring" class="page-view hidden fade-in bg-white text-[#111111] min-h-screen pb-24">
+      <div class="bg-[#111111] text-white py-16 sm:py-24 px-4 sm:px-6 lg:px-10 mb-12">
+        <div class="max-w-4xl mx-auto text-center space-y-4">
+          <p class="text-[11px] uppercase tracking-[0.3em] text-[#777777]">Bespoke Commissioning</p>
+          <h1 class="font-serif-luxury text-3xl sm:text-5xl font-normal tracking-[0.18em] uppercase title-gold">
+            MAY ĐO TRANG PHỤC RIÊNG
+          </h1>
+          <p class="text-sm text-body-white font-light max-w-xl mx-auto">
+            Điền đầy đủ thông tin bên dưới theo thứ tự từ trên xuống một mạch không gián đoạn.
+          </p>
+        </div>
+      </div>
+
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 space-y-12">
+        
+        <!-- PHẦN 1: ĐỐI TƯỢNG -->
+        <div class="border border-[#E5E5E5] p-6 sm:p-8 bg-white shadow-sm space-y-5">
+          <div class="flex items-center justify-between border-b border-[#E5E5E5] pb-3">
+            <h2 class="font-serif-luxury text-2xl title-gold text-[#111111]">1. Đối tượng may đo</h2>
+            <span class="text-xs uppercase tracking-widest text-[#777777]">Bước 1 / 6</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <button type="button" onclick="setTailoringGender('nam')" id="btn-gender-nam" class="p-6 text-left border bg-[#111111] text-white border-[#111111]">
+              <span class="font-serif-luxury text-xl block mb-1 title-gold">Thời trang Nam</span>
+              <span class="text-xs text-body-white">Veston, Măng tô, Sơ mi, Quần tây...</span>
+            </button>
+            <button type="button" onclick="setTailoringGender('nu')" id="btn-gender-nu" class="p-6 text-left border bg-white text-[#111111] border-[#E5E5E5]">
+              <span class="font-serif-luxury text-xl block mb-1">Thời trang Nữ</span>
+              <span class="text-xs text-[#777777]">Vest nữ, Blazer, Quần tây, Áo khoác...</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- PHẦN 2: LOẠI TRANG PHỤC & YÊU CẦU -->
+        <div class="border border-[#E5E5E5] p-6 sm:p-8 bg-white shadow-sm space-y-5">
+          <div class="flex items-center justify-between border-b border-[#E5E5E5] pb-3">
+            <h2 class="font-serif-luxury text-2xl text-[#111111]">2. Loại trang phục &amp; Yêu cầu cụ thể</h2>
+            <span class="text-xs uppercase tracking-widest text-[#777777]">Bước 2 / 6</span>
+          </div>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-[#111111] mb-2">Chọn danh mục cơ bản</label>
+              <div id="tailoring-categories-pills" class="flex flex-wrap gap-2"></div>
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-[#111111] mb-2">Yêu cầu thiết kế chi tiết (Khách tự yêu cầu giống phần ghi chú)</label>
+              <textarea id="tailoring-custom-request" rows="4" oninput="handleTailoringNoteInput(this.value)" placeholder="Ví dụ: Vải wool cao cấp màu đen than, ve nhọn cổ điển, 2 khuy bọc vải, túi mổ có nắp, độ ôm vừa vặn thanh lịch..." class="input-luxury"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHẦN 3: TẢI ẢNH MẪU (TÉM TÉM LẠI, BAN ĐẦU 1 ẢNH BẮT BUỘC, THÊM XONG HIỆN 3 KHUNG) -->
+        <div class="border border-[#E5E5E5] p-6 sm:p-8 bg-white shadow-sm space-y-5">
+          <div class="flex items-center justify-between border-b border-[#E5E5E5] pb-3">
+            <h2 class="font-serif-luxury text-2xl text-[#111111]">3. Tải ảnh mẫu tham khảo</h2>
+            <span class="text-xs uppercase tracking-widest text-[#777777]">Bước 3 / 6</span>
+          </div>
+          <p class="text-xs text-[#777777] leading-relaxed">
+            Ban đầu hiển thị 1 khung tải ảnh <strong class="text-black">bắt buộc nổi bật</strong>. Sau khi thêm ảnh vào, hệ thống sẽ mở rộng ra thành 3 khung với tông màu hạ nhẹ hơn.
+          </p>
+          <div id="tailoring-image-slots-container" class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2"></div>
+        </div>
+
+        <!-- PHẦN 4: LẤY SỐ ĐO -->
+        <div class="border border-[#E5E5E5] p-6 sm:p-8 bg-white shadow-sm space-y-5">
+          <div class="flex items-center justify-between border-b border-[#E5E5E5] pb-3">
+            <h2 class="font-serif-luxury text-2xl text-[#111111]">4. Lấy số đo</h2>
+            <span class="text-xs uppercase tracking-widest text-[#777777]">Bước 4 / 6</span>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <button type="button" onclick="setTailoringMeasureMode('at_shop')" id="btn-m-shop" class="px-5 py-2.5 text-xs uppercase tracking-wider border bg-[#111111] text-white">A. Đến nhà may</button>
+            <button type="button" onclick="setTailoringMeasureMode('self_measure')" id="btn-m-self" class="px-5 py-2.5 text-xs uppercase tracking-wider border bg-white text-[#111111] border-[#E5E5E5]">B. Tự đo tại nhà</button>
+          </div>
+          <div id="tailoring-measure-details-area" class="pt-2"></div>
+        </div>
+
+        <!-- PHẦN 5: NHẬN HÀNG -->
+        <div class="border border-[#E5E5E5] p-6 sm:p-8 bg-white shadow-sm space-y-5">
+          <div class="flex items-center justify-between border-b border-[#E5E5E5] pb-3">
+            <h2 class="font-serif-luxury text-2xl text-[#111111]">5. Phương thức nhận hàng</h2>
+            <span class="text-xs uppercase tracking-widest text-[#777777]">Bước 5 / 6</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <button type="button" onclick="setTailoringDelivery('pickup')" id="btn-d-pickup" class="p-4 text-left border bg-[#111111] text-white">
+              <span class="font-serif-luxury text-lg block mb-1">Nhận tại nhà may</span>
+              <span class="text-xs opacity-80">74 Hàn Thuyên, Đà Lạt</span>
+            </button>
+            <button type="button" onclick="setTailoringDelivery('delivery')" id="btn-d-delivery" class="p-4 text-left border bg-white text-[#111111] border-[#E5E5E5]">
+              <span class="font-serif-luxury text-lg block mb-1">Giao tận nơi</span>
+              <span class="text-xs text-[#777777]">Vận chuyển bảo quản phom dáng</span>
+            </button>
+          </div>
+          <div id="tailoring-delivery-address-box" class="hidden space-y-3 pt-2">
+            <input type="text" id="t-recip-name" placeholder="Họ tên người nhận" class="input-luxury text-xs" />
+            <input type="tel" id="t-recip-phone" placeholder="Số điện thoại" class="input-luxury text-xs" />
+            <input type="text" id="t-recip-addr" placeholder="Địa chỉ giao hàng chi tiết" class="input-luxury text-xs" />
+          </div>
+        </div>
+
+        <!-- PHẦN 6: GỬI ĐƠN -->
+        <div class="border border-[#E5E5E5] p-6 sm:p-8 bg-white shadow-sm space-y-5">
+          <div class="flex items-center justify-between border-b border-[#E5E5E5] pb-3">
+            <h2 class="font-serif-luxury text-2xl text-[#111111]">6. Xác nhận &amp; Gửi yêu cầu</h2>
+            <span class="text-xs uppercase tracking-widest text-[#777777]">Bước 6 / 6</span>
+          </div>
+          <div id="tailoring-submit-alert" class="hidden p-4 bg-red-50 text-red-600 text-xs"></div>
+          <button type="button" onclick="submitOneStreamOrder()" class="btn-luxury-gold w-full py-4 text-sm font-semibold">
+            GỬI YÊU CẦU ĐẶT MAY (CHỜ XÁC NHẬN)
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. TRANG HƯỚNG DẪN ĐO (SPEECH TEXT TIẾNG VIỆT) -->
+    <section id="view-measurement" class="page-view hidden fade-in bg-white text-[#111111] min-h-screen py-16 px-4 sm:px-6 lg:px-10">
+      <div class="max-w-4xl mx-auto space-y-8">
+        <div class="text-center space-y-3">
+          <p class="text-[11px] uppercase tracking-[0.3em] text-[#777777]">Trợ lý kỹ thuật may đo</p>
+          <h1 class="font-serif-luxury text-3xl sm:text-4xl font-normal tracking-[0.18em] uppercase">
+            HƯỚNG DẪN TỰ LẤY SỐ ĐO
+          </h1>
+          <p class="text-xs text-[#777777] max-w-lg mx-auto">
+            Nghe giọng đọc tiếng Việt tổng hợp để thực hiện lần lượt các bước đo cơ thể chuẩn xác.
+          </p>
+        </div>
+
+        <div class="flex justify-center gap-2 flex-wrap pb-4">
+          <button type="button" data-mtype="Veston / Áo khoác" onclick="setMeasureGarment('Veston / Áo khoác')" class="px-4 py-2 text-xs uppercase tracking-wider border bg-[#111111] text-white border-[#111111]">Veston / Áo khoác</button>
+          <button type="button" data-mtype="Áo sơ mi" onclick="setMeasureGarment('Áo sơ mi')" class="px-4 py-2 text-xs uppercase tracking-wider border bg-white text-[#111111] border-[#E5E5E5]">Áo sơ mi</button>
+          <button type="button" data-mtype="Quần tây" onclick="setMeasureGarment('Quần tây')" class="px-4 py-2 text-xs uppercase tracking-wider border bg-white text-[#111111] border-[#E5E5E5]">Quần tây</button>
+        </div>
+
+        <div id="standalone-measurement-container" class="border border-[#E5E5E5] p-6 sm:p-10 bg-white"></div>
+      </div>
+    </section>
+
+    <!-- 6. TRANG TÀI KHOẢN KHÁCH HÀNG -->
+    <section id="view-account" class="page-view hidden fade-in bg-white text-[#111111] min-h-screen py-16 px-4 sm:px-6 lg:px-10">
+      <div class="max-w-4xl mx-auto space-y-8">
+        <div class="border-b border-[#E5E5E5] pb-6 flex justify-between items-center">
+          <div>
+            <p class="text-xs uppercase tracking-widest text-[#777777]">Tài khoản khách hàng</p>
+            <h1 class="font-serif-luxury text-3xl" id="account-user-title">Hồ sơ khách hàng</h1>
+          </div>
+          <button type="button" onclick="handleSignOut()" class="btn-luxury-outline py-2 px-4 text-xs">Đăng xuất</button>
+        </div>
+        <div id="account-tab-content"></div>
+      </div>
+    </section>
+
+    <!-- 7. DASHBOARD ADMIN -->
+    <section id="view-admin" class="page-view hidden fade-in bg-[#F3F1ED] text-[#111111] min-h-screen py-16 px-4 sm:px-6 lg:px-10">
+      <div class="max-w-6xl mx-auto" id="admin-access-guard"></div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer-gold-full py-16 sm:py-20 px-4 sm:px-6 lg:px-10 border-t border-white/20">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 pb-12 border-b border-white/20">
+      <div class="space-y-4">
+        <h2 class="font-serif-luxury text-2xl tracking-[0.25em] uppercase title-gold">
+          NHÀ MAY HỮU DƯ
+        </h2>
+        <p class="font-serif-luxury text-lg italic text-body-white">
+          &ldquo;Chỉn chu trong từng đường kim. Tinh tế trong từng thiết kế.&rdquo;
+        </p>
+        <div class="space-y-1.5 text-xs text-body-white pt-2">
+          <p>Địa chỉ: 74 Hàn Thuyên, Đà Lạt, Lâm Đồng</p>
+          <p>Điện thoại: 0908789919 hoặc 0913154654</p>
+          <p>Email: nhamayhuududalat@gmail.com</p>
+          <p class="pt-2">
+            <a href="https://maps.app.goo.gl/X7vrE1WyESFWFa9b6" target="_blank" rel="noopener noreferrer" class="underline title-gold">
+              Xem vị trí trên Google Maps →
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div class="md:pl-10 space-y-4">
+        <p class="text-xs uppercase tracking-[0.25em] title-gold">Danh mục dịch vụ</p>
+        <ul class="space-y-2 text-xs uppercase tracking-wider text-body-white">
+          <li><button type="button" onclick="navigateTo('about')" class="hover:underline">Giới thiệu</button></li>
+          <li><button type="button" onclick="navigateTo('products')" class="hover:underline">Sản phẩm Nam &amp; Nữ</button></li>
+          <li><button type="button" onclick="navigateTo('tailoring')" class="hover:underline">May đo riêng</button></li>
+          <li><button type="button" onclick="navigateTo('measurement')" class="hover:underline">Hướng dẫn đo</button></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-body-white">
+      <p>&copy; 2026 Nhà May Hữu Dư. Bảo lưu mọi quyền.</p>
+      <div>
+        <button type="button" onclick="handleFooterAdminClick()" class="title-gold underline tracking-wider uppercase">
+          Quản trị
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL XÁC THỰC ==================== -->
+  <div id="auth-modal-backdrop" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-[2px]">
+    <div class="relative w-full max-w-md bg-white border border-[#111111] p-8 shadow-2xl">
+      <button type="button" onclick="closeAuthModal()" class="absolute top-5 right-5 p-2 text-[#777777] hover:text-[#111111]">✕</button>
+      <div class="mb-6">
+        <p id="auth-modal-subtitle" class="text-[11px] uppercase tracking-[0.25em] text-[#777777] mb-2">Nhà May Hữu Dư</p>
+        <h2 id="auth-modal-title" class="font-serif-luxury text-2xl font-normal text-[#111111]">Đăng nhập khách hàng</h2>
+      </div>
+      <div id="auth-modal-error" class="hidden mb-5 p-4 bg-[#F3F1ED] border-l-2 border-red-600 text-xs text-red-600"></div>
+      <div id="auth-modal-success" class="hidden mb-5 p-4 bg-[#F3F1ED] border-l-2 border-emerald-600 text-xs text-emerald-700"></div>
+      
+      <form id="auth-modal-form" onsubmit="submitAuthForm(event)" class="space-y-4">
+        <div id="auth-field-name" class="hidden">
+          <label class="block text-xs uppercase tracking-wider text-[#111111] mb-1">Họ và tên</label>
+          <input type="text" id="auth-input-name" placeholder="Nguyễn Văn A" class="input-luxury" />
+        </div>
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-[#111111] mb-1">Email</label>
+          <input type="email" id="auth-input-email" required placeholder="email@example.com" class="input-luxury" />
+        </div>
+        <div id="auth-field-pass">
+          <div class="flex items-center justify-between mb-1">
+            <label class="block text-xs uppercase tracking-wider text-[#111111]">Mật khẩu</label>
+            <button type="button" onclick="switchAuthMode('forgot')" class="text-xs text-[#777777] underline">Quên mật khẩu?</button>
+          </div>
+          <input type="password" id="auth-input-password" minlength="6" placeholder="••••••••" class="input-luxury" />
+        </div>
+        <button type="submit" id="auth-submit-btn" class="btn-luxury-gold w-full mt-2">Đăng nhập</button>
+      </form>
+
+      <div class="mt-6 pt-5 border-t border-[#E5E5E5] text-center text-xs text-[#777777]" id="auth-footer-text">
+        Chưa có tài khoản? <button type="button" onclick="switchAuthMode('register')" class="text-[#111111] font-medium underline">Đăng ký ngay</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const SUPABASE_URL = "https://wjwerxqadkmyhpqdkftw.supabase.co";
+    const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_rWNRaEfMCPGtZqpGiZbSiQ_5cWhmnZc";
+
+    let supabaseClient = null;
+    try {
+      supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+    } catch (e) {
+      console.error("Supabase init error", e);
+    }
+
+    const APP_STATE = {
+      currentPage: "home",
+      user: null,
+      profile: null,
+      isAdmin: false,
+      authMode: "login",
+      categories: [],
+      products: [],
+      tailoring: {
+        gender: "nam",
+        categoryId: "",
+        customNote: "",
+        images: [null, null, null],
+        measurementMethod: "at_shop",
+        measurements: {},
+        deliveryMethod: "pickup",
+        recipientName: "",
+        recipientPhone: "",
+        recipientAddress: "",
+      },
+      measureWizard: {
+        garment: "Veston / Áo khoác",
+        stepIdx: 0,
+        values: {},
+      }
+    };
+
+    const MEAS_STEPS = [
+      { key: "neck_cm", label: "Vòng cổ (cm)", instruction: "Đặt thước dây vòng quanh chân cổ, phía dưới yết hầu. Chèn một ngón tay trỏ vào giữa thước và cổ." },
+      { key: "shoulder_cm", label: "Ngang vai (cm)", instruction: "Đo thẳng từ điểm mỏm xương vai bên trái sang điểm mỏm xương vai bên phải qua phần gáy cổ sau." },
+      { key: "chest_cm", label: "Vòng ngực (cm)", instruction: "Đứng thẳng, hít thở bình thường. Vòng thước dây ngang qua phần nở nhất của ngực." },
+      { key: "waist_cm", label: "Vòng eo (cm)", instruction: "Đo quanh phần nhỏ nhất của eo tự nhiên trên rốn khoảng 2 đến 3 xăng-ti-mét." },
+      { key: "shirt_length_cm", label: "Dài áo (cm)", instruction: "Đặt đầu thước dây tại điểm chân cổ sát vai, kéo thẳng dọc theo thân trước xuống đến độ dài mong muốn." },
+      { key: "pants_length_cm", label: "Dài quần (cm)", instruction: "Đo dọc theo đường sườn ngoài chân từ cạp quần xuống đến ngang mắt cá chân." }
+    ];
+
+    function navigateTo(pageId) {
+      APP_STATE.currentPage = pageId;
+      document.querySelectorAll(".page-view").forEach(el => el.classList.add("hidden"));
+      const t = document.getElementById(`view-${pageId}`);
+      if (t) t.classList.remove("hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      if (pageId === "products") renderProductsGrid();
+      if (pageId === "tailoring") renderTailoringOneStream();
+      if (pageId === "measurement") renderStandaloneMeasurement();
+      if (pageId === "account") renderAccountPage();
+      if (pageId === "admin") renderAdminDashboard();
+    }
+
+    function toggleMobileMenu() {
+      document.getElementById("mobile-menu").classList.toggle("hidden");
+    }
+
+    async function syncData() {
+      if (!supabaseClient) return;
+      const { data: { user } } = await supabaseClient.auth.getUser();
+      await updateAuthUser(user);
+
+      try {
+        const [catRes, prodRes] = await Promise.all([
+          supabaseClient.from("categories").select("*").eq("is_active", true),
+          supabaseClient.from("products").select("*, product_images(*)").eq("is_published", true)
+        ]);
+        if (catRes.data) APP_STATE.categories = catRes.data;
+        if (prodRes.data) APP_STATE.products = prodRes.data;
+      } catch (e) {
+        console.warn(e);
+      }
+      renderHomeFeatured();
+      renderTailoringOneStream();
+    }
+
+    async function updateAuthUser(user) {
+      APP_STATE.user = user;
+      APP_STATE.isAdmin = false;
+      if (user) {
+        const { data: role } = await supabaseClient.from("user_roles").select("*").eq("user_id", user.id).eq("role", "admin").maybeSingle();
+        APP_STATE.isAdmin = Boolean(role?.is_active);
+      }
+      document.getElementById("header-admin-btn").classList.toggle("hidden", !APP_STATE.isAdmin);
+      document.getElementById("mobile-admin-btn").classList.toggle("hidden", !APP_STATE.isAdmin);
+    }
+
+    function renderHomeFeatured() {
+      const c = document.getElementById("home-featured-container");
+      if (!c) return;
+      const feat = APP_STATE.products.slice(0, 3);
+      if (feat.length === 0) {
+        c.innerHTML = `<p class="text-center text-xs text-[#777777]">Chưa có sản phẩm nổi bật nào.</p>`;
+        return;
+      }
+      c.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          ${feat.map(p => `
+            <div class="border border-[#E5E5E5] p-6 space-y-4 hover:border-[#D4AF37] transition-colors">
+              <h3 class="font-serif-luxury text-2xl text-[#111111]">${p.name}</h3>
+              <p class="text-xs text-[#777777] line-clamp-2">${p.short_description || "Thiết kế may đo cao cấp"}</p>
+              <button type="button" onclick="navigateTo('tailoring')" class="text-xs uppercase tracking-widest text-[#111111] font-semibold underline">Đặt may ngay →</button>
+            </div>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function renderProductsGrid() {
+      const c = document.getElementById("products-grid-container");
+      if (!c) return;
+      const list = APP_STATE.products;
+      if (list.length === 0) {
+        c.innerHTML = `<p class="text-center text-xs text-[#777777]">Chưa có sản phẩm nào.</p>`;
+        return;
+      }
+      c.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          ${list.map(p => `
+            <div class="border border-[#E5E5E5] p-6 space-y-4">
+              <h3 class="font-serif-luxury text-2xl text-[#111111]">${p.name}</h3>
+              <p class="text-xs text-[#777777]">${p.short_description || ""}</p>
+              <button type="button" onclick="navigateTo('tailoring')" class="btn-luxury-dark text-xs py-2 px-4">Đặt may mẫu này</button>
+            </div>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    // --- MAY ĐO RIÊNG MỘT LÈO ---
+    function setTailoringGender(g) {
+      APP_STATE.tailoring.gender = g;
+      document.getElementById("btn-gender-nam").className = g === 'nam' ? "p-6 text-left border bg-[#111111] text-white border-[#111111]" : "p-6 text-left border bg-white text-[#111111] border-[#E5E5E5]";
+      document.getElementById("btn-gender-nu").className = g === 'nu' ? "p-6 text-left border bg-[#111111] text-white border-[#111111]" : "p-6 text-left border bg-white text-[#111111] border-[#E5E5E5]";
+      renderTailoringCategories();
+    }
+
+    function renderTailoringCategories() {
+      const box = document.getElementById("tailoring-categories-pills");
+      if (!box) return;
+      const list = APP_STATE.categories.filter(c => c.gender === APP_STATE.tailoring.gender || c.gender === "unisex");
+      if (list.length === 0) {
+        box.innerHTML = `<p class="text-xs text-[#777777]">Không có danh mục nào. Quý khách có thể tự ghi chú ở bên dưới.</p>`;
+        return;
+      }
+      box.innerHTML = list.map(c => `
+        <button type="button" onclick="APP_STATE.tailoring.categoryId='${c.id}'; renderTailoringCategories();" class="px-4 py-2 text-xs uppercase tracking-wider border ${APP_STATE.tailoring.categoryId === c.id ? 'bg-[#111111] text-white border-[#111111]' : 'bg-white text-[#111111] border-[#E5E5E5]'}">${c.name}</button>
+      `).join("");
+    }
+
+    function handleTailoringNoteInput(val) {
+      APP_STATE.tailoring.customNote = val;
+    }
+
+    function renderTailoringImageSlots() {
+      const container = document.getElementById("tailoring-image-slots-container");
+      if (!container) return;
+      const imgs = APP_STATE.tailoring.images;
+      const hasFirstImage = Boolean(imgs[0]);
+      const countToShow = hasFirstImage ? 3 : 1;
+
+      let html = "";
+      for (let i = 0; i < countToShow; i++) {
+        const isRequired = i === 0;
+        const item = imgs[i];
+
+        if (isRequired) {
+          html += `
+            <div class="border-2 border-[#D4AF37] p-4 bg-[#F3F1ED] space-y-3">
+              <div class="flex items-center justify-between text-xs font-semibold">
+                <span class="text-black font-bold">1. Ảnh mặt trước (Bắt buộc)</span>
+                <span class="text-[10px] bg-[#D4AF37] text-black px-1.5 py-0.5 uppercase tracking-wider font-bold">Nổi bật</span>
+              </div>
+              ${item ? `
+                <div class="aspect-[3/4] bg-white border border-[#E5E5E5] overflow-hidden relative">
+                  <img src="${item.url}" class="w-full h-full object-cover" />
+                </div>
+                <button type="button" onclick="removeTailoringImage(${i})" class="text-xs text-red-600 underline">Xóa ảnh</button>
+              ` : `
+                <label class="aspect-[3/4] border-2 border-dashed border-[#D4AF37] bg-white flex flex-col items-center justify-center p-3 text-center cursor-pointer">
+                  <span class="text-xs font-medium uppercase">Tải ảnh bắt buộc</span>
+                  <input type="file" accept="image/*" class="hidden" onchange="uploadTailoringImg(${i}, this.files)" />
+                </label>
+              `}
+            </div>
+          `;
+        } else {
+          html += `
+            <div class="border border-[#E5E5E5] p-4 bg-white/60 space-y-3 opacity-80 hover:opacity-100 transition-opacity">
+              <div class="flex items-center justify-between text-xs text-[#777777]">
+                <span>${i === 1 ? '2. Ảnh mặt sau (Tém tém)' : '3. Ảnh chi tiết (Tém tém)'}</span>
+              </div>
+              ${item ? `
+                <div class="aspect-[3/4] bg-white border border-[#E5E5E5] overflow-hidden relative">
+                  <img src="${item.url}" class="w-full h-full object-cover" />
+                </div>
+                <button type="button" onclick="removeTailoringImage(${i})" class="text-xs text-[#777777] underline">Xóa ảnh</button>
+              ` : `
+                <label class="aspect-[3/4] border border-dashed border-[#E5E5E5] bg-gray-50 flex flex-col items-center justify-center p-3 text-center cursor-pointer">
+                  <span class="text-xs text-[#777777] uppercase">+ Thêm ảnh phụ</span>
+                  <input type="file" accept="image/*" class="hidden" onchange="uploadTailoringImg(${i}, this.files)" />
+                </label>
+              `}
+            </div>
+          `;
+        }
+      }
+      container.innerHTML = html;
+    }
+
+    function uploadTailoringImg(idx, files) {
+      if (!files || !files[0]) return;
+      const file = files[0];
+      APP_STATE.tailoring.images[idx] = { file, url: URL.createObjectURL(file) };
+      renderTailoringImageSlots();
+    }
+
+    function removeTailoringImage(idx) {
+      APP_STATE.tailoring.images[idx] = null;
+      renderTailoringImageSlots();
+    }
+
+    function setTailoringMeasureMode(mode) {
+      APP_STATE.tailoring.measurementMethod = mode;
+      document.getElementById("btn-m-shop").className = mode === 'at_shop' ? "px-5 py-2.5 text-xs uppercase tracking-wider border bg-[#111111] text-white" : "px-5 py-2.5 text-xs uppercase tracking-wider border bg-white text-[#111111] border-[#E5E5E5]";
+      document.getElementById("btn-m-self").className = mode === 'self_measure' ? "px-5 py-2.5 text-xs uppercase tracking-wider border bg-[#111111] text-white" : "px-5 py-2.5 text-xs uppercase tracking-wider border bg-white text-[#111111] border-[#E5E5E5]";
+
+      const area = document.getElementById("tailoring-measure-details-area");
+      if (!area) return;
+      if (mode === 'at_shop') {
+        area.innerHTML = `<p class="text-xs text-[#777777]">Nhà may sẽ liên hệ quý khách để sắp xếp thời gian đo trực tiếp tại 74 Hàn Thuyên, Đà Lạt.</p>`;
+      } else {
+        area.innerHTML = `
+          <div class="space-y-3">
+            <p class="text-xs text-[#777777]">Quý khách có thể tự nhập nhanh thông số số đo (cm):</p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              ${MEAS_STEPS.map(m => `
+                <div>
+                  <label class="block text-[10px] uppercase text-[#777777] mb-1">${m.label}</label>
+                  <input type="number" step="0.5" oninput="APP_STATE.tailoring.measurements['${m.key}']=this.value" placeholder="cm" class="input-luxury text-xs py-2" />
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function setTailoringDelivery(d) {
+      APP_STATE.tailoring.deliveryMethod = d;
+      document.getElementById("btn-d-pickup").className = d === 'pickup' ? "p-4 text-left border bg-[#111111] text-white" : "p-4 text-left border bg-white text-[#111111] border-[#E5E5E5]";
+      document.getElementById("btn-d-delivery").className = d === 'delivery' ? "p-4 text-left border bg-[#111111] text-white" : "p-4 text-left border bg-white text-[#111111] border-[#E5E5E5]";
+      document.getElementById("tailoring-delivery-address-box").classList.toggle("hidden", d !== 'delivery');
+    }
+
+    async function submitOneStreamOrder() {
+      const alertBox = document.getElementById("tailoring-submit-alert");
+      alertBox.classList.add("hidden");
+
+      if (!APP_STATE.user) {
+        openAuthModal("login");
+        return;
+      }
+
+      if (!APP_STATE.tailoring.images[0]) {
+        alertBox.textContent = "Vui lòng tải lên ít nhất ảnh mặt trước bắt buộc ở bước 3.";
+        alertBox.classList.remove("hidden");
+        return;
+      }
+
+      const orderCode = `HD-${Date.now().toString().slice(-6)}`;
+      const { error } = await supabaseClient.from("orders").insert({
+        order_code: orderCode,
+        user_id: APP_STATE.user.id,
+        gender: APP_STATE.tailoring.gender,
+        category_id: APP_STATE.tailoring.categoryId || null,
+        category_name: "May đo riêng một mạch",
+        design_details: { note: APP_STATE.tailoring.customNote },
+        measurement_method: APP_STATE.tailoring.measurementMethod,
+        measurements_snapshot: APP_STATE.tailoring.measurements,
+        delivery_method: APP_STATE.tailoring.deliveryMethod,
+        recipient_name: document.getElementById("t-recip-name")?.value || "",
+        recipient_phone: document.getElementById("t-recip-phone")?.value || "",
+        recipient_address: document.getElementById("t-recip-addr")?.value || "",
+        customer_notes: APP_STATE.tailoring.customNote,
+        status: "cho_xac_nhan"
+      });
+
+      if (error) {
+        alertBox.textContent = `Lỗi gửi đơn: ${error.message}`;
+        alertBox.classList.remove("hidden");
+      } else {
+        alert(`Gửi yêu cầu đặt may thành công! Mã đơn: ${orderCode}`);
+        navigateTo("account");
+      }
+    }
+
+    function renderTailoringOneStream() {
+      renderTailoringCategories();
+      renderTailoringImageSlots();
+      setTailoringMeasureMode('at_shop');
+    }
+
+    // --- HƯỚNG DẪN ĐO ---
+    function setMeasureGarment(type) {
+      APP_STATE.measureWizard.garment = type;
+      APP_STATE.measureWizard.stepIdx = 0;
+      document.querySelectorAll("[data-mtype]").forEach(b => {
+        const active = b.getAttribute("data-mtype") === type;
+        b.className = active ? "px-4 py-2 text-xs uppercase tracking-wider border bg-[#111111] text-white border-[#111111]" : "px-4 py-2 text-xs uppercase tracking-wider border bg-white text-[#111111] border-[#E5E5E5]";
+      });
+      renderStandaloneMeasurement();
+    }
+
+    function renderStandaloneMeasurement() {
+      const idx = APP_STATE.measureWizard.stepIdx;
+      const step = MEAS_STEPS[idx] || MEAS_STEPS[0];
+      const root = document.getElementById("standalone-measurement-container");
+      if (!root) return;
+
+      root.innerHTML = `
+        <div class="space-y-6">
+          <div class="flex items-center justify-between border-b border-[#E5E5E5] pb-3">
+            <h3 class="font-serif-luxury text-2xl title-gold text-black">Bước ${idx + 1} / ${MEAS_STEPS.length}: ${step.label}</h3>
+            <button type="button" onclick="speakVietnameseStep('${step.label}', '${step.instruction}')" class="btn-luxury-gold py-2 px-4 text-xs">
+              🔊 Đọc giọng tiếng Việt
+            </button>
+          </div>
+          <p class="text-sm text-[#444444] leading-relaxed bg-[#F3F1ED] p-4 border-l-2 border-[#111111]">
+            ${step.instruction}
+          </p>
+          <div>
+            <label class="block text-xs uppercase tracking-wider mb-2">Nhập số đo thực tế (cm)</label>
+            <input type="number" step="0.5" id="meas-input-val" oninput="APP_STATE.measureWizard.values['${step.key}']=this.value" placeholder="Ví dụ: 90" class="input-luxury text-lg font-medium" />
+          </div>
+          <div class="flex items-center justify-between pt-4 border-t border-[#E5E5E5]">
+            <button type="button" ${idx === 0 ? "disabled" : ""} onclick="APP_STATE.measureWizard.stepIdx--; renderStandaloneMeasurement();" class="px-4 py-2 border text-xs uppercase disabled:opacity-40">← Bước trước</button>
+            <button type="button" onclick="handleMeasureNextStep(${idx})" class="btn-luxury-dark">Tiếp tục →</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function speakVietnameseStep(title, text) {
+      if (!("speechSynthesis" in window)) {
+        alert("Trình duyệt không hỗ trợ tổng hợp giọng nói.");
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(`${title}. ${text}`);
+      utter.lang = "vi-VN";
+      utter.rate = 0.95;
+      window.speechSynthesis.speak(utter);
+    }
+
+    function handleMeasureNextStep(idx) {
+      if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+      if (idx < MEAS_STEPS.length - 1) {
+        APP_STATE.measureWizard.stepIdx++;
+        renderStandaloneMeasurement();
+      } else {
+        alert("Đã hoàn tất các bước lấy số đo!");
+        navigateTo("tailoring");
+      }
+    }
+
+    // --- TÀI KHOẢN & ADMIN ---
+    async function renderAccountPage() {
+      const c = document.getElementById("account-tab-content");
+      if (!c) return;
+      if (!APP_STATE.user) {
+        c.innerHTML = `<p class="text-center text-xs text-[#777777]">Vui lòng đăng nhập để xem lịch sử đơn hàng.</p>`;
+        return;
+      }
+      document.getElementById("account-user-title").textContent = APP_STATE.user.email;
+      const { data: ords } = await supabaseClient.from("orders").select("*").eq("user_id", APP_STATE.user.id);
+      c.innerHTML = `
+        <h2 class="font-serif-luxury text-2xl mb-4 text-[#111111]">Lịch sử đặt may của bạn</h2>
+        <div class="space-y-4">
+          ${(!ords || ords.length === 0) ? `<p class="text-xs text-[#777777]">Chưa có đơn hàng nào.</p>` : ords.map(o => `
+            <div class="border border-[#E5E5E5] p-5 space-y-2">
+              <div class="flex justify-between text-xs">
+                <strong>Mã đơn: ${o.order_code}</strong>
+                <span class="px-2.5 py-1 bg-[#111111] text-white">${o.status}</span>
+              </div>
+              <p class="text-xs text-[#777777]">Ngày tạo: ${new Date(o.created_at).toLocaleDateString("vi-VN")}</p>
+            </div>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    async function renderAdminDashboard() {
+      const guard = document.getElementById("admin-access-guard");
+      if (!guard) return;
+      if (!APP_STATE.isAdmin) {
+        guard.innerHTML = `<div class="bg-black text-white p-8 text-center"><h1 class="text-2xl">Khu vực quản trị giới hạn</h1></div>`;
+        return;
+      }
+      const { data: ords } = await supabaseClient.from("orders").select("*").order("created_at", { ascending: false });
+      guard.innerHTML = `
+        <div class="space-y-6">
+          <h1 class="font-serif-luxury text-3xl text-[#111111]">Dashboard Quản trị Nhà May Hữu Dư</h1>
+          <div class="space-y-3">
+            ${(!ords || ords.length === 0) ? `<p class="text-xs text-[#777777]">Chưa có đơn hàng nào.</p>` : ords.map(o => `
+              <div class="bg-white border p-4 flex justify-between items-center text-xs">
+                <div><strong>${o.order_code}</strong> - ${o.category_name || 'Đặt may riêng'}</div>
+                <span class="px-3 py-1 bg-black text-white">${o.status}</span>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    // --- XÁC THỰC HOÀN CHỈNH & QUÊN MẬT KHẨU GỬI GMAIL ---
+    function openAuthModal(mode) {
+      APP_STATE.authMode = mode;
+      const titleEl = document.getElementById("auth-modal-title");
+      const subEl = document.getElementById("auth-modal-subtitle");
+      const footerEl = document.getElementById("auth-footer-text");
+      const errEl = document.getElementById("auth-modal-error");
+      const succEl = document.getElementById("auth-modal-success");
+      const nameField = document.getElementById("auth-field-name");
+      const passField = document.getElementById("auth-field-pass");
+      const submitBtn = document.getElementById("auth-submit-btn");
+
+      if (errEl) errEl.classList.add("hidden");
+      if (succEl) succEl.classList.add("hidden");
+
+      if (mode === "admin_login") {
+        if (subEl) subEl.textContent = "HỆ THỐNG QUẢN TRỊ VIÊN";
+        if (titleEl) titleEl.textContent = "Đăng nhập Quản trị viên";
+        if (nameField) nameField.classList.add("hidden");
+        if (passField) passField.classList.remove("hidden");
+        if (submitBtn) submitBtn.textContent = "Xác thực quản trị";
+        if (footerEl) footerEl.innerHTML = `<button type="button" onclick="switchAuthMode('login')" class="text-[#111111] underline">Quay về đăng nhập khách hàng</button>`;
+      } else if (mode === "register") {
+        if (subEl) subEl.textContent = "NHÀ MAY HỮU DƯ";
+        if (titleEl) titleEl.textContent = "Tạo tài khoản khách hàng mới";
+        if (nameField) nameField.classList.remove("hidden");
+        if (passField) passField.classList.remove("hidden");
+        if (submitBtn) submitBtn.textContent = "Đăng ký tài khoản";
+        if (footerEl) footerEl.innerHTML = `Đã có tài khoản? <button type="button" onclick="switchAuthMode('login')" class="text-[#111111] font-medium underline">Đăng nhập</button>`;
+      } else if (mode === "forgot") {
+        if (subEl) subEl.textContent = "NHÀ MAY HỮU DƯ";
+        if (titleEl) titleEl.textContent = "Quên mật khẩu (Gửi mã về Gmail)";
+        if (nameField) nameField.classList.add("hidden");
+        if (passField) passField.classList.add("hidden");
+        if (submitBtn) submitBtn.textContent = "Gửi mã đặt lại mật khẩu";
+        if (footerEl) footerEl.innerHTML = `<button type="button" onclick="switchAuthMode('login')" class="text-[#111111] underline">Quay lại đăng nhập</button>`;
+      } else {
+        if (subEl) subEl.textContent = "NHÀ MAY HỮU DƯ";
+        if (titleEl) titleEl.textContent = "Đăng nhập khách hàng";
+        if (nameField) nameField.classList.add("hidden");
+        if (passField) passField.classList.remove("hidden");
+        if (submitBtn) submitBtn.textContent = "Đăng nhập";
+        if (footerEl) footerEl.innerHTML = `Chưa có tài khoản? <button type="button" onclick="switchAuthMode('register')" class="text-[#111111] font-medium underline">Đăng ký ngay</button>`;
+      }
+
+      document.getElementById("auth-modal-backdrop").classList.remove("hidden");
+    }
+
+    function switchAuthMode(mode) {
+      openAuthModal(mode);
+    }
+
+    function closeAuthModal() {
+      document.getElementById("auth-modal-backdrop").classList.add("hidden");
+    }
+
+    async function submitAuthForm(e) {
+      e.preventDefault();
+      const email = document.getElementById("auth-input-email").value.trim();
+      const pass = document.getElementById("auth-input-password").value;
+      const fullName = document.getElementById("auth-input-name")?.value.trim() || "";
+      const errBox = document.getElementById("auth-modal-error");
+      const succBox = document.getElementById("auth-modal-success");
+      if (errBox) errBox.classList.add("hidden");
+      if (succBox) succBox.classList.add("hidden");
+
+      if (APP_STATE.authMode === "forgot") {
+        const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+          redirectTo: window.location.origin
+        });
+        if (error) {
+          if (errBox) {
+            errBox.textContent = `Lỗi: ${error.message}`;
+            errBox.classList.remove("hidden");
+          }
+        } else {
+          if (succBox) {
+            succBox.textContent = "Supabase đã gửi hướng dẫn và mã đặt lại mật khẩu về Gmail của bạn!";
+            succBox.classList.remove("hidden");
+          }
+        }
+        return;
+      }
+
+      if (APP_STATE.authMode === "admin_login") {
+        const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password: pass });
+        if (error) {
+          if (errBox) {
+            errBox.textContent = `Lỗi đăng nhập: ${error.message}`;
+            errBox.classList.remove("hidden");
+          }
+          return;
+        }
+        const { data: roleRec } = await supabaseClient.from("user_roles").select("*").eq("user_id", data.user.id).eq("role", "admin").maybeSingle();
+        if (!roleRec || !roleRec.is_active) {
+          await supabaseClient.auth.signOut();
+          if (errBox) {
+            errBox.textContent = "Tài khoản này không có quyền Quản trị viên (admin).";
+            errBox.classList.remove("hidden");
+          }
+          return;
+        }
+        await updateAuthUser(data.user);
+        closeAuthModal();
+        navigateTo("admin");
+        return;
+      }
+
+      if (APP_STATE.authMode === "register") {
+        const { data, error } = await supabaseClient.auth.signUp({
+          email,
+          password: pass,
+          options: { data: { full_name: fullName } }
+        });
+        if (error) {
+          if (errBox) {
+            errBox.textContent = `Lỗi đăng ký: ${error.message}`;
+            errBox.classList.remove("hidden");
+          }
+          return;
+        }
+        // Đảm bảo lưu hẳn profile vào database supabase
+        if (data.user) {
+          await supabaseClient.from("profiles").upsert({
+            id: data.user.id,
+            email: email,
+            full_name: fullName,
+            updated_at: new Date().toISOString()
+          });
+        }
+        if (succBox) {
+          succBox.textContent = "Đăng ký thành công! Profile đã lưu vào Supabase. Bạn có thể đăng nhập ngay.";
+          succBox.classList.remove("hidden");
+        }
+        setTimeout(() => openAuthModal("login"), 2000);
+        return;
+      }
+
+      // Đăng nhập khách hàng bình thường
+      const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password: pass });
+      if (error) {
+        if (errBox) {
+          errBox.textContent = `Lỗi đăng nhập: ${error.message}`;
+          errBox.classList.remove("hidden");
+        }
+        return;
+      }
+      await updateAuthUser(data.user);
+      closeAuthModal();
+      navigateTo("account");
+    }
+
+    async function handleSignOut() {
+      if (supabaseClient) await supabaseClient.auth.signOut();
+      await updateAuthUser(null);
+      navigateTo("home");
+    }
+
+    function handleFooterAdminClick() {
+      if (APP_STATE.isAdmin) navigateTo("admin");
+      else openAuthModal('admin_login');
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      syncData();
+    });
+  </script>
+</body>
+</html>
